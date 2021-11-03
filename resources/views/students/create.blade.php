@@ -12,8 +12,7 @@
                         <div class="alert alert-success" role="alert"> 
                             {{ session('status') }} 
                         </div> 
-                    @endif 
-                        
+                    @endif
                     <form action="/students" method="post"> 
                         @csrf 
                         <div class="form-group"> 
@@ -26,10 +25,21 @@
                             <input type="text" class="form-control" required="required" name="name"></br> 
                         </div> 
 
-                        <div class="form-group"> 
+                        <div class="form-group">
+                            <label for="Kelas">Class</label>
+                            <select class="form-control" name="Kelas">
+                                @foreach($kelas as $class)
+                                    <option value="{{$class->id}}"> 
+                                    {{ $class->class_name }} 
+                                    </option>
+                                @endforeach
+                            </select></br>
+                        </div>
+
+                        <!-- <div class="form-group"> 
                             <label for="class">Class</label> 
                             <input type="text" class="form-control" required="required" name="class"></br> 
-                        </div> 
+                        </div>  -->
 
                         <div class="form-group">
                             <label for="department">Department</label> 
